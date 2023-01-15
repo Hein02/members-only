@@ -1,2 +1,16 @@
 <h1>Posts#index</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <h5><%= post.title %></h5>
+      <p><%= post.body %></p>
+      <% if user_signed_in? %>
+        <p><em>by <%= post.user.email %></em></p>
+      <% else %>
+        <p><em>Anonymous</em></p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
